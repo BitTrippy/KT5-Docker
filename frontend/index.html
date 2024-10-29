@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="shopping-list" style="margin: auto">
+      <tr class="table-header">
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+    </table>
+  </body>
+  <script>
+    const table = document.getElementById("shopping-list");
+    const url = "http://localhost:3000/list";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        let list = data;
+        list.map(function (item) {
+          let row = document.createElement("tr");
+          let id = document.createElement("td");
+          let product = document.createElement("td");
+          let price = document.createElement("td");
+
+          id.innerHTML = `${item.id}`;
+          product.innerHTML = `${item.product}`;
+          price.innerHTML = `${item.price}`;
+
+          row.appendChild(id);
+          row.appendChild(product);
+          row.appendChild(price);
+          table.appendChild(row);
+        });
+      });
+  </script>
+</html>

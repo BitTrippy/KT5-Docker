@@ -1,0 +1,19 @@
+table {
+  background-color: black;
+  width: 30%;
+}
+
+.table-header {
+  background-color: lightblue;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  font-weight: bold;
+}
+
+tr {
+  background-color: lightgray;
+}

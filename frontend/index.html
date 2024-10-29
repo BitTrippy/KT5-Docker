@@ -7,7 +7,8 @@
     <title>Document</title>
   </head>
   <body>
-    <table id="shopping-list" style="margin: auto">
+    <!-- API:sta tulevat tiedot laitetaan taulukkoon -->
+    <table id="shopping-list">
       <tr class="table-header">
         <th>ID</th>
         <th>Product</th>
@@ -15,23 +16,29 @@
       </tr>
     </table>
   </body>
+
+  <!-- Tietokanta haku (olisi hyvä olla erillisessä tiedostossa) -->
   <script>
     const table = document.getElementById("shopping-list");
+    // Tietokanta haku
     const url = "http://localhost:3000/list";
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         let list = data;
         list.map(function (item) {
+          // Elementtien luonti
           let row = document.createElement("tr");
           let id = document.createElement("td");
           let product = document.createElement("td");
           let price = document.createElement("td");
 
+          // Asetetaan tiedot id, product ja price elementteihin
           id.innerHTML = `${item.id}`;
           product.innerHTML = `${item.product}`;
           price.innerHTML = `${item.price}`;
 
+          // Lisätään tiedot riville ja rivi taulukkoon
           row.appendChild(id);
           row.appendChild(product);
           row.appendChild(price);

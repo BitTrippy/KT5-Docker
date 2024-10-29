@@ -7,6 +7,10 @@ table {
   background-color: lightblue;
 }
 
+#shopping-list {
+  margin: auto;
+}
+
 table,
 th,
 td {

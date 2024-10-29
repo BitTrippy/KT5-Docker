@@ -5,6 +5,7 @@ const port = 3000;
 
 app.use(cors());
 
+// Yksinkertainen ostoskori muutamalla tuotteella
 const shoppingCart = [
   {
     id: 1,
@@ -33,6 +34,7 @@ const shoppingCart = [
   },
 ];
 
+// Palautetaan ostoskorin sisältä
 app.get("/list", (req, res) => {
   res.send(shoppingCart);
 });
